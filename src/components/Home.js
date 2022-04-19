@@ -1,14 +1,22 @@
 import { observer } from "mobx-react";
 import React from "react";
 import { Button, ButtonGroup } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import authStore from "../stores/authstore";
 
 const Home = () => {
+  const navigate = useNavigate();
+
   const handleLogout = (e) => {
     e.preventDefault();
     authStore.signout();
   };
+
+  const moveToAdmin = (e) => {
+    e.preventDefault();
+    navigate("/admin", { replace: true });
+  };
+
   return (
     <div>
       <div>
@@ -25,9 +33,14 @@ const Home = () => {
             </Link>
           </ButtonGroup>
         ) : (
-          <Button variant="secondary" onClick={handleLogout}>
-            Logout
-          </Button>
+          <div>
+            <Button variant="secondary" onClick={handleLogout}>
+              Logout
+            </Button>
+            <Button variant="secondary" onClick={moveToAdmin}>
+              Go to admin page
+            </Button>
+          </div>
         )}
       </div>
     </div>
