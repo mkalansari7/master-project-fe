@@ -21,7 +21,6 @@ class SemesterStore {
       const response = await instance.post("/api/semester/", {
         name: semesterName,
       });
-      console.log(response);
       this.semesters.push(response.data);
     } catch (error) {
       console.log(

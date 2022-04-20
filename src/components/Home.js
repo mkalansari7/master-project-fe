@@ -3,6 +3,7 @@ import React from "react";
 import { Button, ButtonGroup } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import authStore from "../stores/authstore";
+import MYNavbar from "./MYNavbar";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -19,25 +20,20 @@ const Home = () => {
 
   return (
     <div>
-      <div>
-        <h1>Team Evaluation</h1>
-      </div>
+      <MYNavbar titleA={"Team"} titleB={"Evaluation"} />
       <div>
         {!authStore.user ? (
           <ButtonGroup aria-label="Basic example">
             <Link to="/login">
-              <Button variant="secondary">Login</Button>
+              <Button variant="primary">Login</Button>
             </Link>
             <Link to="/register">
-              <Button variant="secondary">Register</Button>
+              <Button variant="primary">Register</Button>
             </Link>
           </ButtonGroup>
         ) : (
           <div>
-            <Button variant="secondary" onClick={handleLogout}>
-              Logout
-            </Button>
-            <Button variant="secondary" onClick={moveToAdmin}>
+            <Button variant="primary" onClick={moveToAdmin}>
               Go to admin page
             </Button>
           </div>
