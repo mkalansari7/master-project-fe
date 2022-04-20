@@ -31,7 +31,6 @@ const SemesterDetails = ({ semester }) => {
   const handleSave = (e) => {
     e.preventDefault();
     projectStore.addProject(project, semester.id);
-    console.log(project);
     setShow(false);
     setProject(null);
   };
