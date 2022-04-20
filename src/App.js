@@ -8,7 +8,7 @@ import Register from "./components/auth/Register";
 import AdminPage from "./components/AdminPage";
 function App() {
   return (
-    <div className="App">
+    <div className="container">
       <div>
         <Routes>
           <Route path="/" element={<Home />} />

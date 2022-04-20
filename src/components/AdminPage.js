@@ -1,7 +1,8 @@
 import { observer } from "mobx-react";
 import React, { useState } from "react";
-import { Form } from "react-bootstrap";
+import { Accordion, Button, Form } from "react-bootstrap";
 import semesterStore from "../stores/semesterStore";
+import MYNavbar from "./MYNavbar";
 import SemesterDetails from "./SemesterDetails";
 
 const AdminPage = () => {
@@ -31,24 +32,38 @@ const AdminPage = () => {
   };
 
   return (
-    <div className="centre">
-      <h2>AdminPage</h2>
-      {!show ? (
-        <p onClick={handleOpen}>Add Semester</p>
-      ) : (
-        <Form onSubmit={handleSave}>
-          <Form.Control
-            type="text"
-            placeholder="Enter Semester Name"
-            name="name"
-            onChange={handleChange}
-          />
-          <p onClick={handleSave}>Save</p>
-          <p onClick={handleCancle}>Cancel</p>
-        </Form>
-      )}
-      <h4>{semsterlist}</h4>
-    </div>
+    <>
+      <MYNavbar titleA={"Admin"} titleB={"Page"} />
+      <Accordion defaultActiveKey="0">
+        <div className="admin border">
+          {!show ? (
+            <div className="open-btn">
+              <Button onClick={handleOpen} variant="primary">
+                Add Semester
+              </Button>
+            </div>
+          ) : (
+            <Form onSubmit={handleSave}>
+              <Form.Control
+                type="text"
+                placeholder="Enter Semester Name"
+                name="name"
+                onChange={handleChange}
+              />
+              <div className="btns-group">
+                <Button onClick={handleSave} variant="primary">
+                  Save
+                </Button>
+                <Button onClick={handleCancle} variant="outline-dark">
+                  Cancel
+                </Button>
+              </div>
+            </Form>
+          )}
+        </div>
+        {semsterlist}
+      </Accordion>
+    </>
   );
 };
 

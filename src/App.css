@@ -1,17 +1,43 @@
 .App {
-  height: 50%;
-  text-align: center;
+  /* text-align: center; */
   margin: auto;
-  width: 50%;
-  border: 3px solid green;
+  /* width: 50%; */
+  border: 1px solid black;
   padding: 10px;
 }
 
 .myCard {
-  height: 50%;
-  text-align: center;
   margin: auto;
-  width: 50%;
-  border: 3px solid rgb(11, 11, 11);
+  border: 1px solid rgb(11, 11, 11);
+  padding: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.myCard2 {
+  margin-bottom: 12px;
+  border: 1px solid rgb(11, 11, 11);
+  border-radius: 15px;
   padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(236, 236, 236);
+}
+
+.btns-group {
+  display: flex;
+  gap: 0.5rem;
+  padding: 12px 0;
+  justify-content: flex-end;
+}
+
+.open-btn {
+  display: flex;
+  justify-content: flex-end;
+  padding: 12px 0;
+}
+
+.admin {
+  padding: 0 12px;
 }

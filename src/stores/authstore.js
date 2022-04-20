@@ -19,7 +19,6 @@ class AuthStore {
 
   signup = async (userData) => {
     try {
-      console.log(userData);
       await instance.post("/api/users/", userData);
       await this.signin(userData);
     } catch (error) {
@@ -31,10 +30,9 @@ class AuthStore {
     try {
       const res = await instance.post("/api/jwt/create/", userData);
       this.setUser(res.data.access);
-      console.log({ res });
+
       const res2 = await instance.get("/api/users/me/");
       this.user = res2.data;
-      console.log({ res2 });
     } catch (error) {
       console.log(error);
     }
