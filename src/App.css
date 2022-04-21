@@ -53,3 +53,9 @@
   padding: 12px;
   justify-content: flex-end;
 }
+
+.criteria-form {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
