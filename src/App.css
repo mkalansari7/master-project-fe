@@ -41,3 +41,15 @@
 .admin {
   padding: 0 12px;
 }
+
+.addTeamBtn {
+  position: absolute;
+  right: 10%;
+}
+
+.Team-btns-group {
+  display: flex;
+  gap: 0.5rem;
+  padding: 12px;
+  justify-content: flex-end;
+}
