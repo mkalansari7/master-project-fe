@@ -16,7 +16,7 @@ const MYNavbar = ({ titleA, titleB }) => {
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <Container>
         <Link to="/" className="navbar-brand text-light fw-bold">
-          <span className="text-primary">{titleA}</span>{" "}
+          <span className="text-primary">{titleA}</span>
           <span className="fw-lighter">{titleB}</span>
         </Link>
         {authStore.user && (
