@@ -6,12 +6,28 @@ import Home from "./components/Home";
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 import AdminPage from "./components/AdminPage";
+import ProjectPage from "./components/projectPages/ProjectPage";
+import ProjectTeamPage from "./components/projectPages/ProjectTeamPage";
+import JudgePage from "./components/judgePages/JudgePage";
 function App() {
   return (
     <div className="container">
       <div>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route
+            path="/judge/:evaluationId/:semesterId/:projectId"
+            element={<JudgePage />}
+          />
+          <Route
+            path="/judge/:evaluationId/:semesterId/:projectId/:judgeId"
+            element={<JudgePage />}
+          />
+          <Route path="/details/:projectId" element={<ProjectPage />} />
+          <Route
+            path="/details/:projectId/:teamId"
+            element={<ProjectTeamPage />}
+          />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/admin" element={<AdminPage />} />
