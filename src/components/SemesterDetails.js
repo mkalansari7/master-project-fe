@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import projectStore from "../stores/projectStore";
 import ProjectDetails from "./ProjectDetails";
-import { FaAngleDown, FaAngleUp } from "react-icons/fa";
 import { Accordion, Button, Form } from "react-bootstrap";
 import { observer } from "mobx-react";
 import criteriaStore from "../stores/criteriaStore";
@@ -78,8 +77,8 @@ const SemesterDetails = ({ semester }) => {
             <Form.Control
               className="mb-2"
               type="text"
-              placeholder="Enter Project Wieght"
-              name="wieght"
+              placeholder="Enter Project Weight"
+              name="weight"
               onChange={handleChange}
             />
             <Form.Select
@@ -97,7 +96,9 @@ const SemesterDetails = ({ semester }) => {
                 handleChange(newEvent);
               }}
             >
-              <option disabled>Choose criterias</option>
+              <option disabled>
+                Choose criterias (Hold ctrl to choose multiple criterias)
+              </option>
               {criteriasOptions}
             </Form.Select>
             {!showCriteria ? (
@@ -116,8 +117,8 @@ const SemesterDetails = ({ semester }) => {
                 <Form.Control
                   className="form-control-sm"
                   type="text"
-                  placeholder="Enter Criteria Wieght"
-                  name="wieght"
+                  placeholder="Enter Criteria Weight"
+                  name="weight"
                   onChange={handleCriteriaChange}
                 />
                 <Button className="btn-sm" onClick={handleAddCriteria}>
@@ -134,7 +135,7 @@ const SemesterDetails = ({ semester }) => {
             )}
             <div className="btns-group">
               <Button type="submit" onClick={handleSave} variant="primary">
-                Save
+                Add Project
               </Button>
               <Button onClick={handleCancle} variant="outline-dark">
                 Cancel
