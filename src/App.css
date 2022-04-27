@@ -43,6 +43,8 @@
 }
 
 .addTeamBtn {
+  display: flex;
+  gap: 0.5rem;
   position: absolute;
   right: 10%;
 }
@@ -58,4 +60,15 @@
   display: flex;
   gap: 0.5rem;
   align-items: center;
+}
+
+.teamList {
+  padding: 6px 12px;
+
+  text-decoration: none;
+}
+
+.range {
+  display: flex;
+  gap: 0.5rem;
 }

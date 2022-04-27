@@ -8,11 +8,6 @@ import MYNavbar from "./MYNavbar";
 const Home = () => {
   const navigate = useNavigate();
 
-  const handleLogout = (e) => {
-    e.preventDefault();
-    authStore.signout();
-  };
-
   const moveToAdmin = (e) => {
     e.preventDefault();
     navigate("/admin", { replace: true });
