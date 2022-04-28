@@ -17,7 +17,6 @@ const AddTeam = ({ project }) => {
     e.preventDefault();
     let newTeams = { ...teams };
     let spratedTeams = newTeams.name.split(", ");
-    console.log(spratedTeams);
     teamStore.addTeams(spratedTeams, project.id, handleClose);
   };
   return (

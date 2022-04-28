@@ -66,18 +66,15 @@ const ProjectPage = () => {
     </tr>
   );
 
-  console.log(evaluations);
-
   const handleLock = (e) => {
     e.preventDefault();
     evaluations.isLocked = true;
-
     evaluationStore.evaluationLock(evaluations);
   };
+
   const handleUnlock = (e) => {
     e.preventDefault();
     evaluations.isLocked = false;
-
     evaluationStore.evaluationLock(evaluations);
   };
 
@@ -149,20 +146,22 @@ const ProjectPage = () => {
           <tbody>{cri}</tbody>
         </Table>
         <h3>Total: {evaluations.avg[0].total}%</h3>
-        {evaluations.isLocked ? (
-          <Button onClick={handleUnlock}>Unlock</Button>
-        ) : (
-          <Button onClick={handleLock}>Lock</Button>
-        )}
-        <Button
-          onClick={() =>
-            navigator.clipboard.writeText(
-              `http://localhost:3000/judge/${evaluations.id}/${semester.id}/${projectId}`
-            )
-          }
-        >
-          Copy
-        </Button>
+        <div className="range">
+          {evaluations.isLocked ? (
+            <Button onClick={handleUnlock}>Unlock</Button>
+          ) : (
+            <Button onClick={handleLock}>Lock</Button>
+          )}
+          <Button
+            onClick={() =>
+              navigator.clipboard.writeText(
+                `http://localhost:3000/judge/${evaluations.id}/${semester.id}/${projectId}`
+              )
+            }
+          >
+            Copy the link
+          </Button>
+        </div>
       </div>
     ) : (
       <></>
