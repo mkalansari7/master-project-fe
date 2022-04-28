@@ -9,12 +9,14 @@ import AdminPage from "./components/AdminPage";
 import ProjectPage from "./components/projectPages/ProjectPage";
 import ProjectTeamPage from "./components/projectPages/ProjectTeamPage";
 import JudgePage from "./components/judgePages/JudgePage";
+import ThankPage from "./components/ThankPage";
 function App() {
   return (
     <div className="container">
       <div>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/done" element={<ThankPage />} />
           <Route
             path="/judge/:evaluationId/:semesterId/:projectId"
             element={<JudgePage />}

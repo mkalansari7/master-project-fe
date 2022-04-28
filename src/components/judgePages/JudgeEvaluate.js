@@ -1,9 +1,12 @@
 import React from "react";
 import { Accordion, Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import judgeStore from "../../stores/judgeStore";
 import JudgeDetails from "./JudgeDetails";
 
 const JudgeEvaluate = ({ evaluation, semester, project, judge }) => {
+  const navigate = useNavigate();
+
   const teams = judge.grade.map((team) => (
     <JudgeDetails key={team.team_id} team={team} />
   ));
@@ -11,6 +14,7 @@ const JudgeEvaluate = ({ evaluation, semester, project, judge }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     judgeStore.updateGrade(judge);
+    navigate("/done");
   };
   return (
     <div>
