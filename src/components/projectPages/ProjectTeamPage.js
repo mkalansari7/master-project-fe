@@ -121,6 +121,9 @@ const ProjectTeamPage = () => {
         <MYNavbar titleA={"Project"} titleB={"Page"} />
         <h1 className="text-center">{project.name}</h1>
         <h5 className="text-center">{semester.name}</h5>
+        <h6 className="text-center">
+          This project has been evaluated by {evaluations.avg.judge} judges
+        </h6>
 
         <NavLink className="teamList" to={`/details/${project.id}`}>
           All
