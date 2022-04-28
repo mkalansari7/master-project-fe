@@ -66,8 +66,6 @@ const ProjectPage = () => {
     </tr>
   );
 
-  console.log(evaluations);
-
   const handleLock = (e) => {
     e.preventDefault();
     evaluations.isLocked = true;

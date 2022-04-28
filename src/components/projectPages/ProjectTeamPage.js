@@ -48,7 +48,7 @@ const ProjectTeamPage = () => {
           evaluation.id === project.linkId.id ? evaluation : ""
         )
       : "";
-  console.log(evaluations.avg[teamId]);
+
   const cri =
     evaluations && evaluations.judge.length !== 0 ? (
       evaluations.avg[teamId].criteria ? (
@@ -74,7 +74,7 @@ const ProjectTeamPage = () => {
 
   const notes = evaluations
     ? evaluations.avg[teamId].notes.map((note) => (
-        <div>
+        <div key={note.judge_id}>
           <hr />
           <b>{note.judge_name} Says:</b> <p>{note.note}</p>
         </div>

@@ -27,11 +27,19 @@ const JudgeDetails = ({ team }) => {
       <p>{grade.grade}</p>
     </div>
   ));
+
   return (
     <div>
       <Accordion.Item eventKey={String(team.team_id)}>
         <Accordion.Header>{team.team_name}</Accordion.Header>
-        <Accordion.Body>{criteria}</Accordion.Body>
+        <Accordion.Body>
+          {criteria}
+          <textarea
+            style={{ width: "100%" }}
+            placeholder="Add your note here"
+            onChange={(e) => (team.note = e.target.value)}
+          />
+        </Accordion.Body>
       </Accordion.Item>
     </div>
   );
