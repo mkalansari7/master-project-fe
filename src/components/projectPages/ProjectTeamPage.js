@@ -15,11 +15,12 @@ const ProjectTeamPage = () => {
     ? projectStore.projects.find((project) => project.id === +projectId)
     : "";
 
-  const semester = semesterStore.semesters
-    ? semesterStore.semesters.find(
-        (semester) => semester.id === project.semester
-      )
-    : "";
+  const semester =
+    semesterStore.semesters && project
+      ? semesterStore.semesters.find(
+          (semester) => semester.id === project.semester
+        )
+      : "";
 
   const teams = teamStore.teams
     ? project
@@ -47,7 +48,7 @@ const ProjectTeamPage = () => {
           evaluation.id === project.linkId.id ? evaluation : ""
         )
       : "";
-
+  console.log(evaluations.avg[teamId]);
   const cri =
     evaluations && evaluations.judge.length !== 0 ? (
       evaluations.avg[teamId].criteria ? (
@@ -70,6 +71,16 @@ const ProjectTeamPage = () => {
         <th className="text-center">nothing</th>
       </tr>
     );
+
+  const notes = evaluations
+    ? evaluations.avg[teamId].notes.map((note) => (
+        <div>
+          <hr />
+          <b>{note.judge_name} Says:</b> <p>{note.note}</p>
+        </div>
+      ))
+    : "";
+
   if (evaluations && evaluations.avg ? evaluations.avg.judge === 0 : true) {
     return project && teamList && semester ? (
       <div>
@@ -127,7 +138,11 @@ const ProjectTeamPage = () => {
           </thead>
           <tbody>{cri}</tbody>
         </Table>
-        <h3>Total: {evaluations.avg[0].total}%</h3>
+        <h3>Total: {evaluations.avg[teamId].total}%</h3>
+        <div className="border p-3">
+          <h1 className="text-center">Note</h1>
+          {notes}
+        </div>
       </div>
     ) : (
       <></>
